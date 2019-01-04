@@ -1,0 +1,19 @@
+logging:
+  path: /usr/local/jars/log/${spring.application.name}
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: localhost
+  client:
+#  false代表自身仅作为服务器，不作为客户端
+    register-with-eureka: false
+#    false意味着无法注册自身
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+spring:
+  application:
+    name: msa-weather-eureka-server
+
+
